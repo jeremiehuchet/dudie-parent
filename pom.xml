@@ -12,7 +12,8 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses />.
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
@@ -48,11 +49,24 @@ along with this program.  If not, see <http://www.gnu.org/licenses />.
     </issueManagement>
     <developers>
         <developer>
-            <id>JHU</id>
-            <name>kops</name>
+            <id>kops</id>
+            <name>Jérémie Huchet</name>
             <properties>
                 <contact>http://www.google.com/recaptcha/mailhide/d?k=01ZGpzgTpH16GtSj8NB93DsQ==&amp;c=WrY-DpDtsC0sd8emmUY07rAJ5IhIoRWnxieganlteL0=</contact>
             </properties>
+            <roles>
+                <role>Developer</role>
+            </roles>
+        </developer>
+        <developer>
+            <id>orgoz</id>
+            <name>Olivier Boudet</name>
+            <properties>
+                <contact>http://www.google.com/recaptcha/mailhide/d?k=01ZGpzgTpH16GtSj8NB93DsQ==&amp;c=7bcMv951KPf73RPfdTZgbLRZbJvLfTOCFiCdA-kGkB8=</contact>
+            </properties>
+            <roles>
+                <role>Developer</role>
+            </roles>
         </developer>
     </developers>
 
