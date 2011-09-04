@@ -30,7 +30,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <name>Dudie parent POM</name>
     <description>Parent POM for dudie projects</description>
 
-    <url>http://github.com/kops/dudie-parent</url>
+    <url>https://github.com/kops/dudie-parent</url>
     <licenses>
         <license>
             <name>GNU General Public License, Version 3</name>
@@ -39,21 +39,20 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         </license>
     </licenses>
     <scm>
-        <url>http://github.com/kops/dudie-parent</url>
-        <connection>scm:git:ssh://github.com/kops/dudie-parent</connection>
-        <developerConnection>scm:git:ssh://github.com/kops/dudie-parent</developerConnection>
+        <url>git@github.com:kops/dudie-parent.git</url>
+        <connection>scm:git:git@github.com:kops/dudie-parent.git</connection>
+        <developerConnection>scm:git:git@github.com:kops/dudie-parent.git</developerConnection>
     </scm>
-
     <issueManagement>
-    	<system>Github tracker</system>
-    	<url>https://github.com/kops/dudie-parent/issues</url>
+        <system>Github tracker</system>
+        <url>https://github.com/kops/dudie-parent/issues</url>
     </issueManagement>
     <developers>
         <developer>
             <id>JHU</id>
             <name>kops</name>
             <properties>
-            	<contact>http://www.google.com/recaptcha/mailhide/d?k=01ZGpzgTpH16GtSj8NB93DsQ==&amp;c=WrY-DpDtsC0sd8emmUY07rAJ5IhIoRWnxieganlteL0=</contact>
+                <contact>http://www.google.com/recaptcha/mailhide/d?k=01ZGpzgTpH16GtSj8NB93DsQ==&amp;c=WrY-DpDtsC0sd8emmUY07rAJ5IhIoRWnxieganlteL0=</contact>
             </properties>
         </developer>
     </developers>
@@ -67,6 +66,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
                 <configuration>
                     <source>1.6</source>
                     <target>1.6</target>
@@ -75,10 +75,24 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
+                <version>2.1.2</version>
                 <executions>
                     <execution>
                         <id>attach-sources</id>
                         <phase>verify</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.8</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
                         <goals>
                             <goal>jar</goal>
                         </goals>
@@ -103,6 +117,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
                         <version>1.1</version>
+                        <configuration>
+                            <useAgent>true</useAgent>
+                        </configuration>
                         <executions>
                             <execution>
                                 <id>sign-artifacts</id>
