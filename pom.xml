@@ -24,7 +24,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses />.
 
     <groupId>fr.dudie</groupId>
     <artifactId>dudie-parent</artifactId>
-    <version>1-SNAPSHOT</version>
+    <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>Dudie parent POM</name>
