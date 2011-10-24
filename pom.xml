@@ -90,6 +90,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses />.
                     <include>README</include>
                 </includes>
             </resource>
+            <resource>
+                <directory>${basedir}/src/main/resources</directory>
+            </resource>
         </resources>
         <pluginManagement>
             <plugins>
