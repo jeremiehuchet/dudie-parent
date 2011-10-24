@@ -12,7 +12,8 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses />.
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
@@ -91,6 +92,38 @@ along with this program.  If not, see <http://www.gnu.org/licenses />.
         </resources>
         <pluginManagement>
             <plugins>
+                <plugin>
+                    <groupId>com.mycila.maven-license-plugin</groupId>
+                    <artifactId>maven-license-plugin</artifactId>
+                    <version>1.8.0</version>
+                    <configuration>
+                        <quiet>false</quiet>
+                        <failIfMissing>true</failIfMissing>
+                        <aggregate>false</aggregate>
+                        <includes>
+                            <include>src/main/**</include>
+                            <include>src/test/**</include>
+                        </includes>
+                        <excludes>
+                            <exclude>LICENSE*</exclude>
+                            <exclude>NOTICE*</exclude>
+                            <exclude>README*</exclude>
+                        </excludes>
+                        <useDefaultExcludes>true</useDefaultExcludes>
+                        <useDefaultMapping>true</useDefaultMapping>
+                        <mapping>
+                            <java>SLASHSTAR_STYLE</java>
+                        </mapping>
+                        <strictCheck>true</strictCheck>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>check</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
