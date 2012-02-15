@@ -64,7 +64,7 @@ Slightly modified version of Sun Checks that better matches the default code for
     <module name="IllegalInstantiation"/>
     <module name="InnerAssignment"/>
     <module name="MagicNumber">
-      <property name="ignoreNumbers" value="-1,0,1,1E5,1E6"/>
+      <property name="ignoreNumbers" value="-1,0,1,2,1E5,1E6"/>
     </module>
     <module name="MissingSwitchDefault"/>
     <module name="RedundantThrows">
