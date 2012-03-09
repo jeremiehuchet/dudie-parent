@@ -117,8 +117,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses />.
                 <plugin>
                     <groupId>com.mycila.maven-license-plugin</groupId>
                     <artifactId>maven-license-plugin</artifactId>
-                    <version>1.8.0</version>
+                    <version>1.9.0</version>
                     <configuration>
+                        <header>https://raw.github.com/kops/dudie-parent/master/etc/file-header-gpl.txt</header>
+                        <properties>
+                            <year>${project.inceptionYear}</year>
+                            <owner>Dudie</owner>
+                        </properties>
                         <quiet>false</quiet>
                         <failIfMissing>true</failIfMissing>
                         <aggregate>false</aggregate>
@@ -333,11 +338,5 @@ along with this program.  If not, see <http://www.gnu.org/licenses />.
             </build>
         </profile>
     </profiles>
-
-    <skin>
-        <groupId>org.apache.maven.skins</groupId>
-        <artifactId>maven-classic-skin</artifactId>
-        <version>1.0</version>
-    </skin>
 
 </project>
