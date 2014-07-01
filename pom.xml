@@ -1,17 +1,24 @@
-<!-- 
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses />.
--->
+<!--
+  [license]
+  Dudie parent POM
+  ~~~~
+  Copyright (C) 2010 - 2014 Dudie
+  ~~~~
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU Lesser General Public License as
+  published by the Free Software Foundation, either version 3 of the
+  License, or (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Lesser Public License for more details.
+  
+  You should have received a copy of the GNU General Lesser Public
+  License along with this program.  If not, see
+  <http://www.gnu.org/licenses/lgpl-3.0.html>.
+  [/license]
+  -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
@@ -28,13 +35,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses />.
 
     <name>Dudie parent POM</name>
     <description>Parent POM for dudie projects</description>
-
     <url>https://github.com/kops/dudie-parent</url>
+    <inceptionYear>2010</inceptionYear>
+
+    <organization>
+        <name>Dudie</name>
+    </organization>
 
     <licenses>
         <license>
-            <name>GNU General Public License, Version 3</name>
-            <url>http://www.gnu.org/licenses/gpl.txt</url>
+            <name>GNU Lesser General Public License, Version 3</name>
+            <url>http://www.gnu.org/licenses/lgpl.txt</url>
             <distribution>repo</distribution>
         </license>
     </licenses>
@@ -77,6 +88,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses />.
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <use.gpg.agent>true</use.gpg.agent>
+        <license.licenseName>lgpl_v3</license.licenseName>
     </properties>
 
     <build>
@@ -114,39 +126,22 @@ along with this program.  If not, see <http://www.gnu.org/licenses />.
                     </executions>
                 </plugin>
                 <plugin>
-                    <groupId>com.mycila.maven-license-plugin</groupId>
-                    <artifactId>maven-license-plugin</artifactId>
-                    <version>1.9.0</version>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>license-maven-plugin</artifactId>
+                    <version>1.7</version>
                     <configuration>
-                        <header>https://raw.github.com/kops/dudie-parent/master/etc/file-header-gpl.txt</header>
-                        <properties>
-                            <year>${project.inceptionYear}</year>
-                            <owner>Dudie</owner>
-                        </properties>
-                        <quiet>false</quiet>
-                        <failIfMissing>true</failIfMissing>
-                        <aggregate>false</aggregate>
-                        <includes>
-                            <include>src/main/**</include>
-                            <include>src/test/**</include>
-                        </includes>
-                        <excludes>
-                            <exclude>LICENSE*</exclude>
-                            <exclude>NOTICE*</exclude>
-                            <exclude>README*</exclude>
-                        </excludes>
-                        <useDefaultExcludes>true</useDefaultExcludes>
-                        <useDefaultMapping>true</useDefaultMapping>
-                        <mapping>
-                            <java>SLASHSTAR_STYLE</java>
-                        </mapping>
-                        <strictCheck>true</strictCheck>
+                        <verbose>false</verbose>
+                        <processStartTag>[license]</processStartTag>
+                        <sectionDelimiter>~~~~</sectionDelimiter>
+                        <processEndTag>[/license]</processEndTag>
                     </configuration>
                     <executions>
                         <execution>
+                            <id>update-license-headers</id>
                             <goals>
-                                <goal>check</goal>
+                                <goal>update-file-header</goal>
                             </goals>
+                            <phase>process-sources</phase>
                         </execution>
                     </executions>
                 </plugin>
@@ -183,6 +178,16 @@ along with this program.  If not, see <http://www.gnu.org/licenses />.
                     <version>2.6</version>
                     <configuration>
                         <configLocation>https://raw.github.com/kops/dudie-parent/master/etc/dudie-checks.xml</configLocation>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-release-plugin</artifactId>
+                    <version>2.5</version>
+                    <configuration>
+                        <autoVersionSubmodules>true</autoVersionSubmodules>
+                        <tagNameFormat>v@{version}</tagNameFormat>
+                        <preparationGoals>clean license:check-file-header verify</preparationGoals>
                     </configuration>
                 </plugin>
                 <plugin>
