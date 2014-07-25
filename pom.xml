@@ -30,7 +30,7 @@
 
     <groupId>fr.dudie</groupId>
     <artifactId>dudie-parent</artifactId>
-    <version>1.4-SNAPSHOT</version>
+    <version>1.4</version>
     <packaging>pom</packaging>
 
     <name>Dudie parent POM</name>
@@ -54,7 +54,8 @@
         <url>git@github.com:kops/dudie-parent.git</url>
         <connection>scm:git:git@github.com:kops/dudie-parent.git</connection>
         <developerConnection>scm:git:git@github.com:kops/dudie-parent.git</developerConnection>
-    </scm>
+      <tag>v1.4</tag>
+  </scm>
 
     <issueManagement>
         <system>Github tracker</system>
